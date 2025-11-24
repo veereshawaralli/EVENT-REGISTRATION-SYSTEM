@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Upcoming Events</h2>
+  {% if events %}
+    <ul class="list-group">
+    {% for e in events %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <a href="{% url 'events:event_detail' e.pk %}"><strong>{{ e.title }}</strong></a>
+          <div class="small text-muted">{{ e.category }} — {{ e.date_time }}</div>
+        </div>
+        <div class="badge bg-secondary">{{ e.registration_count }}</div>
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>No upcoming events.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>{% if create %}Create Event{% else %}Edit Event: {{ event.title }}{% endif %}</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">{% if create %}Create{% else %}Update{% endif %}</button>
+  </form>
+{% endblock %}

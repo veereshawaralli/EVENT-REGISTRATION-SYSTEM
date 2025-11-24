@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>{{ event.title }}</h2>
+  <p><strong>Category:</strong> {{ event.category }}</p>
+  <p><strong>Date & Time:</strong> {{ event.date_time }}</p>
+  <p><strong>Venue:</strong> {{ event.venue }}</p>
+  <p>{{ event.description }}</p>
+  <p><strong>Registrations:</strong> {{ event.registration_count }}</p>
+
+  {% if user.is_authenticated %}
+    {% if registered %}
+      <p>You are already registered.</p>
+    {% else %}
+      <form method="post" action="{% url 'events:register_event' event.pk %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+    {% endif %}
+  {% else %}
+    <p><a href="/admin/login/?next={{ request.path }}">Login</a> to register.</p>
+  {% endif %}
+{% endblock %}
