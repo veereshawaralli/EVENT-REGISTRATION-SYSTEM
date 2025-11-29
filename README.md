@@ -111,7 +111,7 @@ Set-ExecutionPolicy -Scope CurrentUser Unrestricted
 **CMD:**
 ```cmd
 python -m venv venv
-venv\Scriptsctivate.bat
+venv\Scripts\Activate.bat
 ```
 
 ### ✔ 3. Install Dependencies
