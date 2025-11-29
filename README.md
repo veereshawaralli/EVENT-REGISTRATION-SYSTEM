@@ -105,7 +105,7 @@ Make sure you enter the folder that contains `manage.py`.
 ```powershell
 python -m venv venv
 Set-ExecutionPolicy -Scope CurrentUser Unrestricted
-.env\Scripts\Activate.ps1
+.env\Scripts\Activate.ps1
 ```
 
 **CMD:**
